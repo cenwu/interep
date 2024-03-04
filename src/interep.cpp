@@ -103,7 +103,7 @@ arma::vec interep(arma::mat& e, arma::mat& z, arma::mat& y0, arma::vec& beta, do
       a(j)=x0(j,i);
     }
     for(int j=0; j<n; j++){
-      x00(j,i)=(x0(j,i)-mean(a))/stddev(a);
+      x00(j,i)=(x0(j,i)-mean(a))/(stddev(a)+0.001);
     }
   }
   //reformat the data
@@ -131,7 +131,7 @@ arma::vec interep(arma::mat& e, arma::mat& z, arma::mat& y0, arma::vec& beta, do
   arma::mat x1(x.n_rows,(p1+q+1)),
       x2(x.n_rows,(3*p1)),
       xsub2(x.n_rows,q),
-      E(p,p),
+      W(p,p),
       matr(p,p);
 
   for(int i=0; i<(p1+q+1); i++){
@@ -198,16 +198,19 @@ arma::vec interep(arma::mat& e, arma::mat& z, arma::mat& y0, arma::vec& beta, do
     }
 
     for(int i=0; i<p; i++){
-      E(i,i)=n*E1(i);
+      W(i,i)=n*E1(i);
     }
 
     for(int i=0; i<p; i++){
       for(int j=0; j<p; j++){
-        matr(i,j)=qU(i,j)+E(i,j);
+        matr(i,j)=qU(i,j)+W(i,j);
+        if(j==i){
+          matr(i,j)=matr(i,j)+0.001;
+        }
       }
     }
 
-    betanew = beta + arma::inv(matr)*(U - E*beta);
+    betanew = beta + pinv(matr)*(U - W*beta);
 
     diff=mean(abs(betanew-beta));
     if(diff < 0.001){
