@@ -11,7 +11,7 @@
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/interep)](https://www.r-pkg.org:443/pkg/interep)
 [![CRAN RStudio mirror
-downloads](https://cranlogs.r-pkg.org/badges/grand-total/interep)](https://www.r-pkg.org:443/pkg/interep)
+downloads](https://cranlogs.r-pkg.org/badges/last-month/interep)](https://www.r-pkg.org:443/pkg/interep)
 
 <!-- badges: end -->
 
