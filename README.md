@@ -10,6 +10,8 @@
 [![CRAN](https://www.r-pkg.org/badges/version/interep)](https://cran.r-project.org/package=interep)
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/interep)](https://www.r-pkg.org:443/pkg/interep)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/interep)](https://www.r-pkg.org:443/pkg/interep)
 
 <!-- badges: end -->
 
